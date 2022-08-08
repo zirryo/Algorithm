@@ -17,6 +17,7 @@ public class Main {
                 divider.append(i).append("\n");
                 N = N/i;
             }
+            i++;
         }
         if(N!=1) divider.append(N);
         System.out.println(divider);
