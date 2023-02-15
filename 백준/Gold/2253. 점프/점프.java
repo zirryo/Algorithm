@@ -21,7 +21,7 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        maxVelocity = (int) Math.pow(2.0*N, 0.5);
+        maxVelocity = (int) Math.sqrt(2*N); // 등차수열을 통해 구한 최대 속력
         smallStones = new HashSet<>();
 
         dp = new int[N+1][maxVelocity+2];
@@ -36,9 +36,9 @@ public class Main {
     private static int solve() {
         dp[1][0] = 0;
 
-        for(int i=2; i<=N; i++) {
+        for(int i=2; i<=N; i++) { // 위치
             if(smallStones.contains(i)) continue;
-            for(int j=1; j<=(int) Math.sqrt(2*i); j++) {
+            for(int j=1; j<=(int) Math.sqrt(2*i); j++) { // 최대 속도
                 dp[i][j] = Math.min(Math.min(dp[i-j][j-1], dp[i-j][j]), dp[i-j][j+1]) + 1;
             }
         }
@@ -50,21 +50,5 @@ public class Main {
 
         if(result == INF) result = -1;
         return result;
-    }
-    private static class Jump implements Comparable<Jump> {
-        int pos;
-        int jumpSize;
-        int cnt;
-
-        public Jump(int pos, int jumpSize, int cnt) {
-            this.pos = pos;
-            this.jumpSize = jumpSize;
-            this.cnt = cnt;
-        }
-
-        @Override
-        public int compareTo(Jump j) {
-            return this.cnt - j.cnt;
-        }
     }
 }
