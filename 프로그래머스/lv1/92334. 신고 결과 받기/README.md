@@ -1,10 +1,10 @@
 # [level 1] 신고 결과 받기 - 92334 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/92334?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/92334?language=kotlin) 
 
 ### 성능 요약
 
-메모리: 72.7 MB, 시간: 0.55 ms
+메모리: 61.4 MB, 시간: 6.69 ms
 
 ### 구분
 
