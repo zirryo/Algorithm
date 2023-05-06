@@ -2,15 +2,15 @@ val br = System.`in`.bufferedReader()
 var n = 0
 fun main() {
     n = br.readLine().toInt()
-    val numList = br.readLine().split(" ").map { it.toInt() }.sorted()
+    val numList = br.readLine().split(" ").map { it.toInt() }
     val m = br.readLine().toInt()
     var answer = 0
 
     if(numList.sum() <= m) {
-        answer = numList[n-1]
+        answer = numList.max()
     } else {
         var lo = 1
-        var hi = numList[n-1]
+        var hi = numList.max()
         while (lo <= hi) {
             var mid = (lo + hi) / 2
             if(sumList(numList, mid) > m) {
@@ -24,15 +24,10 @@ fun main() {
     println(answer)
 }
 fun sumList(list : List<Int>, midVal : Int) : Int {
-    var idx = 0
     var sum = 0
     for (i in list.indices) {
         if(list[i] < midVal) sum += list[i]
-        else {
-            idx = i
-            break
-        }
+        else sum += midVal
     }
-    sum += (n - idx) * midVal
     return sum
 }
