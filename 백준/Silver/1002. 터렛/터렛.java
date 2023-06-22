@@ -24,11 +24,15 @@ public class Main {
     public static int point(int x1, int y1, int r1, int x2, int y2, int r2) {
         int d = (int)(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 
-        if(x1==x2 && y1==y2 && r1==r2) return -1; // 두 원이 같은 원
+        if(x1==x2 && y1==y2) {
+            if(r1 == 0 && r2 == 0) return 1; // 두 원의 중심, 적의 위치가 같은 경우
+            else if (r1 == r2) return -1; // 두 원이 같은 원
+            else return 0;
+        }
         else if (d > Math.pow(r1 + r2, 2)) return 0; // 두 원이 포함관계에 있지 않으며, 교점이 없음
         else if(d < Math.pow(r1 - r2, 2)) return 0; // 두 원이 포함관계에 있으며, 교점이 없음
         else if(d == Math.pow(r1 + r2, 2)) return 1; // 외접
         else if(d == Math.pow(r1 - r2, 2)) return 1; // 내접
-        else return 2;
+        return 2;
     }
 }
