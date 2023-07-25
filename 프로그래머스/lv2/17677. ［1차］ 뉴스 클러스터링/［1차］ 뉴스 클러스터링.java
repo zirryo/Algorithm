@@ -4,9 +4,6 @@ import java.util.Map;
 import java.util.Set;
 
 class Solution {
-    public static void main(String[] args) {
-        solution("aa1+aa2", "AAAA12");
-    }
     public static int solution(String str1, String str2) {
         Map<String, Integer> map1 = new HashMap<>();
         Map<String, Integer> map2 = new HashMap<>();
@@ -32,8 +29,6 @@ class Solution {
         int union = 0;
         int intersection = 0;
         for (String str : set) {
-
-
             union += Math.max(map1.getOrDefault(str, 0), map2.getOrDefault(str, 0));
             intersection += Math.min(map1.getOrDefault(str, 0), map2.getOrDefault(str, 0));
         }
