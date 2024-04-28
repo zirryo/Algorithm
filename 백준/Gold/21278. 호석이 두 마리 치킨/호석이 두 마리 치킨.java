@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-    static final int INF = 101;
     static int N;
     static int[][] cost;
     public static void main(String[] args) throws IOException {
@@ -16,11 +15,11 @@ public class Main {
         cost = new int[N+1][N+1];
 
         for (int i = 1; i <= N; i++) {
-            Arrays.fill(cost[i], INF);
+            Arrays.fill(cost[i], 101);
             cost[i][i] = 0;
         }
 
-        for (int i = 1; i < N; i++) {
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
@@ -38,7 +37,7 @@ public class Main {
             }
         }
 
-        int minSum = INF * N * 2;
+        int minSum = 100_000_001;
         int num1 = 0;
         int num2 = 0;
 
@@ -46,7 +45,7 @@ public class Main {
             for (int j = i+1; j <= N; j++) { // j - 두번째 치킨집
                 int tempSum = 0;
                 for (int k = 1; k <= N; k++) { // k - 건물 번호
-                    tempSum += 2 * Math.min(cost[i][k], cost[j][k]);
+                    tempSum += (2 * Math.min(cost[i][k], cost[j][k]));
                 }
 
                 if (minSum > tempSum) {
