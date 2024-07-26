@@ -14,7 +14,7 @@ class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int sum = 0;
+        long sum = 0L;
         int curSpeed = 0;
 
         for (int i = N ; i >= 1 ; i--) {
