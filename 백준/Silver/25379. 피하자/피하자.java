@@ -25,12 +25,12 @@ public class Main {
             }
         }
 
-        int oddToFront = 0;
+        long oddToFront = 0;
         for (int i = 0; i < odd.size(); i++) {
             oddToFront += Math.abs(odd.get(i) - i);
         }
 
-        int evenToFront = 0;
+        long evenToFront = 0;
         for (int i = 0; i < even.size(); i++) {
             evenToFront += Math.abs(even.get(i) - i);
         }
