@@ -1,48 +1,33 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int total = 0;
-        int[] a = new int[N];
+
+        long[] a = new long[N];
+        long total = 0;
         for (int i = 0; i < N; i++) {
-            a[i] = Integer.parseInt(st.nextToken());
+            a[i] = Long.parseLong(st.nextToken());
             total += a[i];
         }
 
-        int perRoom = total / N;
-        int result = 0;
-        int moving = 0;
+        long per = total / N;
 
-        for (int i = 0; i < N; i++) {
-            if (a[i] > perRoom) {
-                moving += (a[i] - perRoom);
-                a[i] = perRoom;
-            } else if (a[i] < perRoom && moving > 0) {
-                moving -= (perRoom - a[i]);
-                a[i] = perRoom;
-            }
-
-            result += moving;
+        long[] prefix = new long[N + 1];
+        long minPrefix = 0L;
+        for (int i = 1; i <= N; i++) {
+            prefix[i] = prefix[i - 1] + (a[i - 1] - per);
+            minPrefix = Math.min(minPrefix, prefix[i]);
         }
 
-        for (int i = 0; i < N; i++) {
-            if (a[i] > perRoom) {
-                moving += (a[i] - perRoom);
-            } else if (a[i] < perRoom) {
-                moving -= (perRoom - a[i]);
-            }
-
-            if (moving == 0) break;
-
-            result += moving;
+        long result = 0;
+        for (int i = 1; i <= N; i++) {
+            result += (prefix[i] - minPrefix);
         }
 
         System.out.println(result);
-
-
     }
 }
