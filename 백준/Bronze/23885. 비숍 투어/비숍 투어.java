@@ -17,7 +17,11 @@ public class Main {
         long ex = Long.parseLong(st.nextToken());
         long ey = Long.parseLong(st.nextToken());
         
-        if ((sx + sy) % 2 == (ex + ey) % 2) {
+        if (sx == ex && sy == ey) {
+            System.out.println("YES");
+        } else if (N == 1 || M == 1) {
+            System.out.println("NO");
+        } else if ((sx + sy) % 2 == (ex + ey) % 2) {
             System.out.println("YES");
         } else {
             System.out.println("NO");
