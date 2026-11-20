@@ -53,7 +53,5 @@
       </table>
 <hr>
 
-<p>※ 공지 - 2021년 10월 20일 테스트케이스가 추가되었습니다.</p>
-
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
